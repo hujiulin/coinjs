@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>
+</title>
+<style type="text/css">
+.ProgressBarTitle 
+{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-family: "MicroSoft YaHei";
+	text-align: center;
+}
+.ProgressBar
+{
+	width:500px;
+	height:20px;	
+	margin:0px auto;
+	border:0px solid;
+	display:block;
+}
+.CurrentProgressBar
+{
+	width: 0px;
+	height:20px;
+	font-family: "MicroSoft YaHei";
+	padding-left: 8px;
+	background: lightblue url("./images/progress.png");
+	float:left;
+	display:block;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+}
+.Operation
+{
+	width: 600px;
+	height: 100px;
+	margin: 0px auto;
+	margin-top: 10px;
+	padding: 20px;
+	text-align: center;
+}
+</style>
+<script src="./js/jquery-1.9.0.js"></script>
+</head>
+<body>
+<div class="ProgressBarTitle">ProgressBar</div>
+<span class="ProgressBar">
+<span class="CurrentProgressBar" id="CurrentProgressBar">0%</span>
+</span>
+<div class="Operation">
+<input type="button" value="开始" onclick="start()"/>
+<input type="button" value="暂停" onclick="stop()"/>
+<input type="button" value="重置" onclick="reset()"/>
+<input type="button" value="循环" onclick="cycle()"/>
+<input type="button" value="百分比" onclick="percent()"/>
+<div>
+<br />
+<input type="button" value="颜色" onclick="color()"/>
+<input type="text" id="colorValue" value="#00FF00" />
+</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+var i = 0;
+var isCycle = false;
+var isPercent = true;
+var timer = null;
+var speed = 30;
+function drawProgress()
+{
+	if (i++ < 100)
+	{
+		$("#CurrentProgressBar").css("width", i+"%");		
+	}
+	else
+	{
+		if (isCycle == true)
+		{
+			i = 0;		
+		}
+		else
+		{
+			i = 100;
+		}
+	}
+	if (isPercent)
+	{
+		$("#CurrentProgressBar").html(i+"%");			
+	}
+	else
+	{
+		$("#CurrentProgressBar").html("");				
+	}
+}
+
+function start()
+{
+	stop();
+	timer = setInterval(drawProgress, speed);
+}
+
+function stop()
+{
+	if (null != timer)
+	{
+		clearInterval(timer);
+		timer = null;	
+	}
+}
+function reset()
+{
+	i = 0;
+	if (null != timer)
+	{
+		clearInterval(timer);
+		timer = null;	
+	}
+	$("#CurrentProgressBar").css("width", i+"%");	
+	$("#CurrentProgressBar").html(i+"%");			
+}
+function cycle()
+{
+	isCycle = !isCycle;
+}
+function percent()
+{
+	isPercent = !isPercent;
+	if (isPercent)
+	{
+		$("#CurrentProgressBar").html(i+"%");	
+	}
+	else
+	{
+		$("#CurrentProgressBar").html("");	
+	}
+}
+function color()
+{
+	var color = $("#colorValue").val();
+	$("#CurrentProgressBar").css("background-color", color);	
+}
+</script>
