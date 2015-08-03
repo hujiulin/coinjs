@@ -1,0 +1,65 @@
+﻿<html>
+<head>
+<meta charset='UTF-8'>
+<!--[if lte IE 8]>
+<style type="text/css">
+body { behavior:url("./csshover3.htc"); }
+</style>
+<![endif]-->
+<style type="text/css">
+li
+{
+	width: 90px;
+	height: 30px;
+	line-height: 30px;
+	list-style-type: none;
+	background-color: #999999;
+	text-align: center;
+	font-size: 15px;
+	font-family: "Microsoft YaHei";
+	border-right: 1px dashed gray;
+	float: left;
+}
+li:hover ul
+{
+	margin-top: 0px;
+	margin-left: -40px;
+	position: absolute;
+	display: block;	
+}
+*li:hover ul
+{
+	margin-top: 26px;
+	margin-left: -68px;
+	position: absolute;
+	display: block;	
+}
+li ul
+{
+	display: none;
+}
+li ul li
+{
+	background-color: #eeeeee;
+	float: none;
+}
+</style>
+<title>
+</title>
+</head>
+<body>
+<ul>
+<li>
+<span>导航1</span>
+<ul>
+<li><a href="http:\\www.baidu.com" target="_blank">子导航1</a></li>
+<li>子导航2</li>
+<li>子导航3</li>
+</ul>
+</li>
+<li>导航2</li>
+<li>导航3</li>
+<li>导航4</li>
+</ul>
+</body>
+</html>
