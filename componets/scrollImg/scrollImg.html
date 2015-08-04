@@ -1,0 +1,57 @@
+﻿<html>
+<head>
+<meta charset="UTF-8"
+<title>
+</title>
+<style type="text/css">
+.wall
+{
+	width: 412px;
+	height: 244px;
+	overflow: hidden;
+	border: 2px dashed lightblue;
+}
+#scrollImg
+{
+	width: 400%;
+	float: left;
+}
+img
+{
+	width: 200px;
+	height: 240px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border: 1px solid gray;
+}
+</style>
+</head>
+<body>
+<div id="wall" class="wall">
+<div id="scrollImg">
+<img src="./images/1.jpg" />
+<img src="./images/2.jpg" />
+<img src="./images/1.jpg" />
+<img src="./images/2.jpg" />
+</div>
+</div
+</body>
+<script type="text/javascript">
+var scrollWall = document.getElementById("wall");
+function scrollFunction()
+{
+	if (scrollWall.scrollLeft >= scrollWall.offsetWidth)
+	{
+		scrollWall.scrollLeft = 0;
+	}
+	else
+	{
+		scrollWall.scrollLeft++;
+	}
+}
+var speed = 10;
+var timer =	setInterval(scrollFunction, 10);
+scrollWall.onmouseover=function() {clearInterval(timer)};
+scrollWall.onmouseout=function() {timer=setInterval(scrollFunction,speed)};
+</script>
+</html>
