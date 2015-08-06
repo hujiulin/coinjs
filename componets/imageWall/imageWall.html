@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>
+</title>
+<style type="text/css">
+.wall
+{
+	width: 802px;
+	height: 610px;
+	margin: 0px auto;
+	padding: 0px 0px 0px 0px;
+	overflow: hidden;
+}
+img
+{
+	width: 800px;
+	height: 600px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border: 1px dashed lightblue;
+}
+ul
+{
+	width: 3208px;
+	height: 602px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+ul li
+{
+	width: 802px;
+	height: 602px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	float: left;
+	list-style-type: none;
+}
+</style>
+</head>
+<body>
+<div class="wall" id = "slide">
+<div style="width:400%;">
+<ul>
+<li><img src="./images/1.jpg" /></li>
+<li><img src="./images/2.jpg" /></li>
+<li><img src="./images/3.jpg" /></li>
+</ul>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+var width = 802;
+var imagesNumber = 3;
+var wall = document.getElementById("slide");
+function SlideImage()
+{
+	wall.scrollLeft += width;		
+	wall.scrollLeft = wall.scrollLeft % (width * imagesNumber);
+}
+var speed = 2000;
+var timer = setInterval(SlideImage, speed);
+wall.onmouseover = function(){clearInterval(timer);}
+wall.onmouseout = function(){timer = setInterval(SlideImage, speed);}
+</script>
+</html>

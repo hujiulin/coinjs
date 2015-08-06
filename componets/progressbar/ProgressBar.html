@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset='UTF-8'>
@@ -50,7 +51,7 @@
 <span class="CurrentProgressBar" id="CurrentProgressBar">0%</span>
 </span>
 <div class="Operation">
-<input type="button" value="开始" onclick="start()"/>
+<input type="button" value="开始" onclick="startP()"/>
 <input type="button" value="暂停" onclick="stop()"/>
 <input type="button" value="重置" onclick="reset()"/>
 <input type="button" value="循环" onclick="cycle()"/>
@@ -96,7 +97,7 @@ function drawProgress()
 	}
 }
 
-function start()
+function startP()
 {
 	stop();
 	timer = setInterval(drawProgress, speed);
