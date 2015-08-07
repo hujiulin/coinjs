@@ -40,20 +40,22 @@ body
 	width: 400px;
 	height: 300px;
 	margin: 0px auto;
-	margin-top: 200px;
 	padding: 0px 0px 0px 0px;
+	position: absolute;
 	border: 1px dashed lightblue;
 	background-color: white;
+	float: left;
+	display: none;
 }
 </style>
 <title>
 </title>
 </head>
 <body>
-<div class="front" id="front" onclick="hideFloat()">
-<div class="box">
-<input type="button" value="关闭" style="float:right"/>
+<div id="front"  class="front">
 </div>
+<div id="loginBox" class="box">
+<input type="button" value="关闭" style="float:right;" onclick="hideFloat()"/>
 </div>
 <div class="back" onclick="showFloat()">
 Hello World!
@@ -63,11 +65,17 @@ function showFloat()
 {
 	var floatBox = document.getElementById("front");	
 	floatBox.style.display = "block";
+	var loginBox = document.getElementById("loginBox");
+	loginBox.style.display = "block";
+	loginBox.style.marginLeft = (document.body.clientWidth / 2 - loginBox.offsetWidth / 2) + "px";
+	loginBox.style.marginTop = (document.body.clientHeight / 2) + "px";	
 }
 function hideFloat()
 {
 	var floatBox = document.getElementById("front");
 	floatBox.style.display = "none";
+	var loginBox = document.getElementById("loginBox");
+	loginBox.style.display = "none";
 }
 </script>
 </body>
